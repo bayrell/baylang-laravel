@@ -46,6 +46,7 @@ class InitCommand extends Command
 		$this->createModuleDescription();
 		$this->publishAssets();
 		$this->downloadVue();
+		$this->showMessage();
 	}
 	
 	
@@ -381,5 +382,28 @@ EOT;
 				echo($buffer);
 			});
 		}
+	}
+	
+	
+	/**
+	 * Show message
+	 */
+	public function showMessage()
+	{
+		$this->newLine();
+		$this->line("To ensure Composer can find components in 'app/' and 'resources/php',");
+		$this->line("add the following configuration to the 'autoload.psr-4'");
+		$this->line("section of your <fg=yellow>composer.json</> file:");
+		$this->line("```");
+        $this->line("\"autoload\": {");
+        $this->line("    \"psr-4\": {");
+        $this->line("        \"App\\\\\": [\"app/\", \"resources/php\"]");
+        $this->line("    }");
+        $this->line("},");
+        $this->line("```");
+		$this->line("\nAfter updating, run the following command to regenerate the autoloader:");
+		$this->info("composer dump-autoload");
+		$this->newLine();
+		$this->info('Application initialization completed!');
 	}
 }
