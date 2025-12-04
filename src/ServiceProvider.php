@@ -49,6 +49,7 @@ class ServiceProvider extends BaseServiceProvider
 			
 			/* Get params */
 			$params = new Map([
+				"base_path" => base_path(),
 				"modules" => new Vector(
 					"App", "Runtime.Web", "Runtime.Widget"
 				),
@@ -100,6 +101,11 @@ class ServiceProvider extends BaseServiceProvider
 		
 		/* Register assets */
 		$this->registerPublishes();
+		
+		/* Register commands */
+		$this->commands([
+			InitCommand::class,
+		]);
 	}
 	
 	
