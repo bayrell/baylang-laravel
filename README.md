@@ -1,6 +1,15 @@
 # BayLang for Laravel
 
 
+## Install compiler
+
+Install BayLang Compiler
+```
+cd ~
+composer global require baylang/compiler
+```
+
+
 ## Create project
 
 Create laravel project:
@@ -13,16 +22,23 @@ Change folder:
 cd project
 ```
 
-Install BayLang Compiler
-```
-cd ~
-composer global require baylang/compiler
-```
-
 Install BayLang laravel:
 ```
 cd laravel
 composer require baylang/laravel
+```
+
+
+## Include BayLang module
+
+Add to bootstrap/providers.php:
+```
+<?php
+
+return [
+    App\Providers\AppServiceProvider::class,
+    Runtime\Laravel\ServiceProvider::class,
+];
 ```
 
 
@@ -73,10 +89,10 @@ Route::get('/', function () {
 
 Compile project:
 ```
-baylang-php make_all
+~/.composer/vendor/bin/baylang-php make_all
 ```
 
 Launch watch changes:
 ```
-baylang-php watch
+~/.composer/vendor/bin/baylang-php watch
 ```
