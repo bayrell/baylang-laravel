@@ -1,0 +1,21 @@
+{
+    "name": "baylang/laravel",
+    "description": "BayLang for Laravel",
+    "type": "library",
+    "license": "Apache-2.0",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Ildar Bikmamatov",
+            "email": "ildar@bayrell.org"
+        }
+    ],
+    "require": {
+        "baylang/core": "^1.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Runtime\\Laravel\\": "src"
+        }
+    }
+}
